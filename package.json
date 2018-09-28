@@ -1,0 +1,30 @@
+{
+    "name": "chunity",
+    "displayName": "chunity",
+    "description": "Embeds ChucK in C Sharp for relevant Unity applications",
+    "version": "0.0.1",
+    "publisher": "jatherton",
+    "engines": {
+        "vscode": "^1.27.0"
+    },
+    "categories": [
+        "Programming Languages"
+    ],
+    "contributes": {
+        "languages": [{
+            "id": "chunity",
+            "aliases": ["Chunity", "chunity"],
+            "extensions": [".cs"],
+            "configuration": "./language-configuration.json"
+        }],
+        "grammars": [{
+            "language": "chunity",
+            "scopeName": "source.chunity",
+            "path": "./syntaxes/chunity.tmLanguage.json",
+            "embeddedLanguages": {
+                "meta.embedded.block.chuck": "chuck",
+                "meta.embedded.block.cs": "csharp"
+            }
+        }]
+    }
+}

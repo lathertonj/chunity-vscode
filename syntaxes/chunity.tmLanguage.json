@@ -1,0 +1,90 @@
+{
+	"fileTypes": [ "cs"	],
+	"name": "Chunity",
+	"scopeName": "source.chunity",
+	"patterns": [
+        {
+            "begin": "RunCode.*@\"",
+            "end": "(?<!\")\"(?!\")",
+            "contentName": "meta.embedded.block.chuck",
+            "beginCaptures": {
+                "0": {
+                    "patterns": [ { "include": "#applyCS" } ]
+                }
+            },
+            "endCaptures": {
+                "0": {
+                    "patterns": [ { "include": "#applyCS" } ]
+                }  
+            },
+            "patterns": [
+                {
+                    "match": "\\bglobal\\b",
+                    "comment": "Chunity adds global keyword",
+                    "name": "storage.modifier.class.chuck"
+                },
+                {
+                    "begin": "\"\"",
+                    "comment": "double quotes are used to escape strings in Chunity",
+                    "beginCaptures": {
+                      "0": {
+                        "name": "punctuation.definition.string.begin.chuck"
+                      }
+                    },
+                    "end": "\"\"",
+                    "endCaptures": {
+                      "0": {
+                        "name": "punctuation.definition.string.end.chuck"
+                      }
+                    },
+                    "name": "string.quoted.double.chuck",
+                    "patterns": [
+                      {
+                        "name": "constant.character.escape.chuck",
+                        "match": "\\\\."
+                      }
+                    ]
+                },      
+                { "include": "source.chuck" }
+            ]
+        },
+        {
+            "match": ".+?(?=RunCode)",
+            "name": "meta.embedded.block.cs",
+            "captures": {
+				"0": {
+					"patterns": [
+                        { "include": "source.cs" }
+                    ]
+				}
+			}
+        },
+        { "include": "source.cs" },
+        {
+            "match": ".+",
+            "name": "meta.embedded.block.cs",
+            "captures": {
+				"0": {
+					"patterns": [
+                        { "include": "source.cs" }
+                    ]
+				}
+			}
+        }
+	],
+	"repository":
+	{
+	    "applyCS":
+	    {
+	        "name": "meta.embedded.block.cs",
+	        "match": ".*",
+	        "captures": { "0": { "patterns": [{ "include": "source.cs" }] } }
+	    },
+	    "applyChucK":
+	    {
+	        "name": "meta.embedded.block.chuck",
+	        "match": ".*",
+	        "captures": { "0": { "patterns": [{ "include": "source.chuck" }] } }
+	    }
+	}
+}
