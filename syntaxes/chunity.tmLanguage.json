@@ -59,7 +59,6 @@
 				}
 			}
         },
-        { "include": "source.cs" },
         {
             "match": ".+",
             "name": "meta.embedded.block.cs",
@@ -70,7 +69,8 @@
                     ]
 				}
 			}
-        }
+        },
+        { "include": "source.cs" }
 	],
 	"repository":
 	{
