@@ -1,14 +1,15 @@
 {
     "name": "chunity",
-    "displayName": "chunity",
-    "description": "Embeds ChucK in C Sharp for relevant Unity applications",
+    "displayName": "Chunity",
+    "description": "Embeds ChucK in C Sharp for relevant Unity applications. Also includes a theme with the default ChucK syntax highlighting and C Sharp syntax highlighting from the VS \"Blue\" theme.",
     "version": "0.0.1",
     "publisher": "jatherton",
     "engines": {
         "vscode": "^1.27.0"
     },
     "categories": [
-        "Programming Languages"
+        "Programming Languages",
+        "Themes"
     ],
     "contributes": {
         "languages": [{
@@ -25,6 +26,11 @@
                 "meta.embedded.block.chuck": "chuck",
                 "meta.embedded.block.cs": "csharp"
             }
+        }],
+        "themes": [{
+            "label": "Chunity Theme",
+            "uiTheme": "vs",
+            "path": "./themes/Chunity Theme-color-theme.json"
         }]
     }
 }
