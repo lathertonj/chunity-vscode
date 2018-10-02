@@ -26,5 +26,10 @@
             "uiTheme": "vs",
             "path": "./themes/Chunity Theme-color-theme.json"
         }]
-    }
+    },
+    "extensionDependencies":
+    [
+        "ms-vscode.csharp",
+        "forrcaho.chuck"
+    ]
 }
