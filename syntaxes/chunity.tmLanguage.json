@@ -54,7 +54,7 @@
             "captures": {
 				"0": {
 					"patterns": [
-                        { "include": "source.cs" }
+                        { "include": "#applyCS" }
                     ]
 				}
 			}
@@ -65,7 +65,7 @@
             "captures": {
 				"0": {
 					"patterns": [
-                        { "include": "source.cs" }
+                        { "include": "#applyCS" }
                     ]
 				}
 			}
@@ -76,7 +76,7 @@
 	{
 	    "applyCS":
 	    {
-	        "name": "meta.embedded.block.cs",
+	        "name": "source.cs",
 	        "match": ".*",
 	        "captures": { "0": { "patterns": [{ "include": "source.cs" }] } }
 	    },

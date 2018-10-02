@@ -12,19 +12,13 @@
         "Themes"
     ],
     "contributes": {
-        "languages": [{
-            "id": "chunity",
-            "aliases": ["Chunity", "chunity"],
-            "extensions": [".cs"],
-            "configuration": "./language-configuration.json"
-        }],
         "grammars": [{
-            "language": "chunity",
+            "language": "csharp",
             "scopeName": "source.chunity",
             "path": "./syntaxes/chunity.tmLanguage.json",
+            "injectTo": [ "source.cs" ],
             "embeddedLanguages": {
-                "meta.embedded.block.chuck": "chuck",
-                "meta.embedded.block.cs": "csharp"
+                "meta.embedded.block.chuck": "chuck"
             }
         }],
         "themes": [{
