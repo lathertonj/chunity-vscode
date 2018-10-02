@@ -24,6 +24,11 @@
                     "name": "storage.modifier.class.chuck"
                 },
                 {
+                    "match": "\\{[0-9]+\\}",
+                    "comment": "highlight string format points",
+                    "name": "string.format.chuck.chunity"
+                },
+                {
                     "begin": "\"\"",
                     "comment": "double quotes are used to escape strings in Chunity",
                     "beginCaptures": {

@@ -69,6 +69,14 @@
 		    "settings": { "foreground": "#729e11" }
 		},
 		{
+		    "name": "Chunity Format String",
+		    "comment": "chuck code in c# is often part of a format string. (orange? #f57d00)",
+		    "scope": [
+		        "meta.embedded.block.chuck string.format.chuck.chunity"
+		    ],
+		    "settings": { "foreground": "#db0000" }
+		},
+		{
 		    "name": "Chunity Blank Text",
 		    "scope": [
 		        "meta.embedded.block.chuck entity.name.function"
