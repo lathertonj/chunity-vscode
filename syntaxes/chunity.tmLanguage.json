@@ -3,6 +3,22 @@
 	"name": "Chunity",
 	"scopeName": "source.chunity",
 	"patterns": [
+	    {
+            "begin": "/\\*",
+            "comment": "C# multiline comments",
+            "beginCaptures": {
+              "0": {
+                "name": "punctuation.definition.comment.cs"
+              }
+            },
+            "end": "\\*/",
+            "endCaptures": {
+              "0": {
+                "name": "punctuation.definition.comment.cs"
+              }
+            },
+            "name": "comment.block.cs"
+        }, 
         {
             "begin": "RunCode.*@\"",
             "end": "(?<!\")\"(?!\")",
@@ -54,8 +70,25 @@
             ]
         },
         {
-            "match": ".+?(?=RunCode)",
+            "begin": "@\"",
+            "comment": "C# verbatim strings not next to a RunCode call",
+            "beginCaptures": {
+              "0": {
+                "name": "punctuation.definition.string.begin.cs"
+              }
+            },
+            "end": "(?<!\")\"(?!\")",
+            "endCaptures": {
+              "0": {
+                "name": "punctuation.definition.string.end.cs"
+              }
+            },
+            "name": "string.quoted.double.cs"
+        }, 
+        {
+            "match": ".+?(?=RunCode|@\"|/\\*)",
             "name": "meta.embedded.block.cs",
+            "comment": "consume everything up to a RunCode, a verbatim string, or a multiline comment",
             "captures": {
 				"0": {
 					"patterns": [
@@ -67,6 +100,7 @@
         {
             "match": ".+",
             "name": "meta.embedded.block.cs",
+            "comment": "consume an entire line",
             "captures": {
 				"0": {
 					"patterns": [
