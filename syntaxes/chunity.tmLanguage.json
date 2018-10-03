@@ -3,88 +3,43 @@
 	"name": "Chunity",
 	"scopeName": "source.chunity",
 	"patterns": [
-	    {
-            "begin": "/\\*",
-            "comment": "C# multiline comments",
-            "beginCaptures": {
-              "0": {
-                "name": "punctuation.definition.comment.cs"
-              }
-            },
-            "end": "\\*/",
-            "endCaptures": {
-              "0": {
-                "name": "punctuation.definition.comment.cs"
-              }
-            },
-            "name": "comment.block.cs"
-        }, 
+	    { "include": "#csharpMultilineComments" }, 
         {
-            "begin": "RunCode.*@\"",
+            "begin": "RunCode.*string.*Format.*@\"",
             "end": "(?<!\")\"(?!\")",
             "contentName": "meta.embedded.block.chuck",
-            "beginCaptures": {
-                "0": {
-                    "patterns": [ { "include": "#applyCS" } ]
-                }
+            "comment": "Chunity code in a string.Format. Shows {0} in red and mistakenly-not-doubled {{ }} also in red.",
+            "beginCaptures": { 
+                "0": { "patterns": [ { "include": "#applyCS" } ] } 
             },
             "endCaptures": {
-                "0": {
-                    "patterns": [ { "include": "#applyCS" } ]
-                }  
+                "0": { "patterns": [ { "include": "#applyCS" } ] }  
             },
             "patterns": [
-                {
-                    "match": "\\bglobal\\b",
-                    "comment": "Chunity adds global keyword",
-                    "name": "storage.modifier.class.chuck"
-                },
-                {
-                    "match": "\\{[0-9]+\\}",
-                    "comment": "highlight string format points",
-                    "name": "string.format.chuck.chunity"
-                },
-                {
-                    "begin": "\"\"",
-                    "comment": "double quotes are used to escape strings in Chunity",
-                    "beginCaptures": {
-                      "0": {
-                        "name": "punctuation.definition.string.begin.chuck"
-                      }
-                    },
-                    "end": "\"\"",
-                    "endCaptures": {
-                      "0": {
-                        "name": "punctuation.definition.string.end.chuck"
-                      }
-                    },
-                    "name": "string.quoted.double.chuck",
-                    "patterns": [
-                      {
-                        "name": "constant.character.escape.chuck",
-                        "match": "\\\\."
-                      }
-                    ]
-                },      
+                { "include": "#chuckGlobalKeyword" },
+                { "include": "#chunityStringFormat" },
+                { "include": "#chunityQuotes" },      
                 { "include": "source.chuck" }
             ]
         },
         {
-            "begin": "@\"",
-            "comment": "C# verbatim strings not next to a RunCode call",
-            "beginCaptures": {
-              "0": {
-                "name": "punctuation.definition.string.begin.cs"
-              }
-            },
+            "begin": "RunCode.*@\"",
             "end": "(?<!\")\"(?!\")",
-            "endCaptures": {
-              "0": {
-                "name": "punctuation.definition.string.end.cs"
-              }
+            "contentName": "meta.embedded.block.chuck",
+            "comment": "Chunity code not in a string.Format. Has no special rules for curly braces.",
+            "beginCaptures": { 
+                "0": { "patterns": [ { "include": "#applyCS" } ] } 
             },
-            "name": "string.quoted.double.cs"
-        }, 
+            "endCaptures": {
+                "0": { "patterns": [ { "include": "#applyCS" } ] }  
+            },
+            "patterns": [
+                { "include": "#chuckGlobalKeyword" },
+                { "include": "#chunityQuotes" },      
+                { "include": "source.chuck" }
+            ]
+        },
+        { "include": "#csharpVerbatimStrings" }, 
         {
             "match": ".+?(?=RunCode|@\"|/\\*)",
             "name": "meta.embedded.block.cs",
@@ -124,6 +79,76 @@
 	        "name": "meta.embedded.block.chuck",
 	        "match": ".*",
 	        "captures": { "0": { "patterns": [{ "include": "source.chuck" }] } }
+	    },
+	    "chuckGlobalKeyword":
+	    {
+            "match": "\\bglobal\\b",
+            "comment": "Chunity adds global keyword",
+            "name": "storage.modifier.class.chuck"
+	    },
+	    "chunityQuotes":
+	    {
+	        "begin": "\"\"",
+            "comment": "double quotes are used to escape strings in Chunity",
+            "beginCaptures": {
+              "0": {
+                "name": "punctuation.definition.string.begin.chuck"
+              }
+            },
+            "end": "\"\"",
+            "endCaptures": {
+              "0": {
+                "name": "punctuation.definition.string.end.chuck"
+              }
+            },
+            "name": "string.quoted.double.chuck",
+            "patterns": [
+              {
+                "name": "constant.character.escape.chuck",
+                "match": "\\\\."
+              }
+            ]
+	    },
+	    "chunityStringFormat":
+	    {
+	        "begin": "(?<!{){(?!{)",
+            "end": "(?<!})}(?!})",
+            "comment": "highlight string format points",
+            "name": "string.format.chuck.chunity"
+	    },
+	    "csharpMultilineComments":
+	    {
+	        "begin": "/\\*",
+            "comment": "C# multiline comments",
+            "beginCaptures": {
+              "0": {
+                "name": "punctuation.definition.comment.cs"
+              }
+            },
+            "end": "\\*/",
+            "endCaptures": {
+              "0": {
+                "name": "punctuation.definition.comment.cs"
+              }
+            },
+            "name": "comment.block.cs"
+	    },
+	    "csharpVerbatimStrings":
+	    {
+	        "begin": "@\"",
+            "comment": "C# verbatim strings not next to a RunCode call",
+            "beginCaptures": {
+              "0": {
+                "name": "punctuation.definition.string.begin.cs"
+              }
+            },
+            "end": "(?<!\")\"(?!\")",
+            "endCaptures": {
+              "0": {
+                "name": "punctuation.definition.string.end.cs"
+              }
+            },
+            "name": "string.quoted.double.cs"
 	    }
 	}
 }
