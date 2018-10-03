@@ -30,12 +30,20 @@
 		    "settings": { "foreground": "#b435f0" }
 		},
 		{
+		    "name": "Chunity Events",
+		    "scope": [
+		        "meta.embedded.block.chuck support.class.event"
+		    ],
+		    "settings": { "foreground": "#95132e" }
+		},
+		{
 		    "name": "Chunity Tokens",
 		    "scope": [
 		        "meta.embedded.block.chuck keyword.operator",
 		        "meta.embedded.block.chuck support.function.debug"
 		    ],
-		    "settings": { "foreground": "#000000" }
+		    "comment": "60478c is for purple",
+		    "settings": { "foreground": "#54291c" }
 		},
 		{
 		    "name": "Chunity Strings",
@@ -79,9 +87,10 @@
 		{
 		    "name": "Chunity Blank Text",
 		    "scope": [
-		        "meta.embedded.block.chuck entity.name.function"
+		        "meta.embedded.block.chuck entity.name.function",
+		        "meta.embedded.block.chuck"
 		    ],
-		    "settings": { "foreground": "#000000" }
+		    "settings": { "foreground": "#54291c" }
 		},
 		{
 			"name": "Comments",
@@ -130,7 +139,7 @@
 			"name": "Operators",
 			"scope": "keyword.operator",
 			"settings": {
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -161,7 +170,7 @@
 				"variable.language"
 			],
 			"settings": {
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -171,7 +180,7 @@
 				"support.variable"
 			],
 			"settings": {
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -182,7 +191,7 @@
 			],
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -192,7 +201,7 @@
 			],
 			"settings": {
 				"fontStyle": "",
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -229,7 +238,16 @@
 				"constant"
 			],
 			"settings": {
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
+			}
+		},
+		{
+			"name": "Variables",
+			"scope": [
+				"entity.name.variable"
+			],
+			"settings": {
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -246,7 +264,7 @@
 			"name": "Strings: Escape Sequences",
 			"scope": "constant.character.escape",
 			"settings": {
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
@@ -267,7 +285,7 @@
 			"name": "Punctuation",
 			"scope": "punctuation",
 			"settings": {
-				"foreground": "#000000"
+				"foreground": "#2c4b5e"
 			}
 		},
 		{
