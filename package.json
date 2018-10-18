@@ -4,6 +4,14 @@
     "description": "Embeds ChucK in C Sharp for relevant Unity applications. Also includes a theme with the default ChucK syntax highlighting and C Sharp syntax highlighting from the VS \"Blue\" theme.",
     "version": "0.0.1",
     "publisher": "jatherton",
+    "homepage": "https://github.com/lathertonj/chunity-vscode",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/lathertonj/chunity-vscode"
+    },
+    "bugs": {
+        "url": "https://github.com/lathertonj/chunity-vscode/issues"
+    },
     "engines": {
         "vscode": "^1.27.0"
     },
