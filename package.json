@@ -2,7 +2,7 @@
     "name": "chunity",
     "displayName": "Chunity",
     "description": "Embeds ChucK in C Sharp for relevant Unity applications. Also includes a theme with the default ChucK syntax highlighting and C Sharp syntax highlighting from the VS \"Blue\" theme.",
-    "version": "0.0.1",
+    "version": "0.0.2",
     "publisher": "jatherton",
     "homepage": "https://github.com/lathertonj/chunity-vscode",
     "repository": {
@@ -20,23 +20,28 @@
         "Themes"
     ],
     "contributes": {
-        "grammars": [{
-            "language": "csharp",
-            "scopeName": "source.chunity",
-            "path": "./syntaxes/chunity.tmLanguage.json",
-            "injectTo": [ "source.cs" ],
-            "embeddedLanguages": {
-                "meta.embedded.block.chuck": "chuck"
+        "grammars": [
+            {
+                "language": "csharp",
+                "scopeName": "source.chunity",
+                "path": "./syntaxes/chunity.tmLanguage.json",
+                "injectTo": [
+                    "source.cs"
+                ],
+                "embeddedLanguages": {
+                    "meta.embedded.block.chuck": "chuck"
+                }
             }
-        }],
-        "themes": [{
-            "label": "Chunity Theme",
-            "uiTheme": "vs",
-            "path": "./themes/Chunity Theme-color-theme.json"
-        }]
+        ],
+        "themes": [
+            {
+                "label": "Chunity Theme",
+                "uiTheme": "vs",
+                "path": "./themes/Chunity Theme-color-theme.json"
+            }
+        ]
     },
-    "extensionDependencies":
-    [
+    "extensionDependencies": [
         "ms-vscode.csharp",
         "forrcaho.chuck"
     ]
