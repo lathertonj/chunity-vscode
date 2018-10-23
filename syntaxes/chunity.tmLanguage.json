@@ -40,10 +40,11 @@
             ]
         },
         { "include": "#csharpVerbatimStrings" }, 
+        { "include": "#csharpSingleLineComments" }, 
         {
-            "match": ".+?(?=RunCode|@\"|/\\*)",
+            "match": ".+?(?=RunCode|@\"|/\\*|//)",
             "name": "meta.embedded.block.cs",
-            "comment": "consume everything up to a RunCode, a verbatim string, or a multiline comment",
+            "comment": "consume everything up to a RunCode, a verbatim string, or a comment",
             "captures": {
 				"0": {
 					"patterns": [
@@ -115,6 +116,23 @@
             "end": "(?<!})}(?!})",
             "comment": "highlight string format points",
             "name": "string.format.chuck.chunity"
+	    },
+	    "csharpSingleLineComments":
+	    {
+            "match": "//.*",
+            "comment": "C sharp comment line",
+            "name": "source.cs",
+            "captures": {
+                "0": {
+                    "name": "comment.line.double-slash.cs",
+                    "patterns": [
+                        { 
+                            "match": "//", 
+                            "name": "punctuation.definition.comment.cs" 
+                        }
+                    ]
+                }
+            }
 	    },
 	    "csharpMultilineComments":
 	    {
