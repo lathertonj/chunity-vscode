@@ -42,7 +42,7 @@
         ]
     },
     "extensionDependencies": [
-        "ms-vscode.csharp",
+        "ms-dotnettools.csharp",
         "forrcaho.chuck"
     ]
 }
